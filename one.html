@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<h2>Enter Employee Name:</h2>
+    <input type="text" id="fname" name="fname">
+    <button onclick="searchEmployee()">Search</button>
+<p id="demo"></p>
+
+<script>
+
+var list= [
+    {
+      "employeName": "Test1",
+      "checkinTime": "9:00",
+      "checkouttime": "10:00",
+      "date": "2022-03-01",
+      "dept": "QA"
+    },
+    {
+      "employeName": "Test2",
+      "checkinTime": "10:00",
+      "checkouttime": "11:00",
+      "date": "2022-03-01",
+      "dept": "Dev"
+    },
+    {
+      "employeName": "Test3",
+      "checkinTime": "11:00",
+      "checkouttime": "12:00",
+      "date": "2022-03-01",
+      "dept": "Finance"
+    },
+    {
+      "employeName": "Test4",
+      "checkinTime": "12:00",
+      "checkouttime": "13:00",
+      "date": "2022-03-01",
+      "dept": "HR"
+    },
+    {
+      "employeName": "Test5",
+      "checkinTime": "13:00",
+      "checkouttime": "14:00",
+      "date": "2022-03-01",
+      "dept": "BA"
+    },
+    {
+      "employeName": "Test6",
+      "checkinTime": "14:00",
+      "checkouttime": "15:00",
+      "date": "2022-03-01",
+      "dept": "Admin"
+    },
+    {
+      "employeName": "Test1",
+      "checkinTime": "9:00",
+      "checkouttime": "10:00",
+      "date": "2022-03-02",
+      "dept": "QA"
+    },
+    {
+      "employeName": "Test2",
+      "checkinTime": "10:00",
+      "checkouttime": "11:00",
+      "date": "2022-03-02",
+      "dept": "Dev"
+    },
+    {
+      "employeName": "Test3",
+      "checkinTime": "11:00",
+      "checkouttime": "12:00",
+      "date": "2022-03-02",
+      "dept": "Finance"
+    },
+    {
+      "employeName": "Test4",
+      "checkinTime": "12:00",
+      "checkouttime": "13:00",
+      "date": "2022-03-02",
+      "dept": "HR"
+    },
+    {
+      "employeName": "Test5",
+      "checkinTime": "13:00",
+      "checkouttime": "14:00",
+      "date": "2022-03-02",
+      "dept": "BA"
+    },
+    {
+      "employeName": "Test6",
+      "checkinTime": "14:00",
+      "checkouttime": "15:00",
+      "date": "2022-03-02",
+      "dept": "Admin"
+    },
+    {
+      "employeName": "Test1",
+      "checkinTime": "9:00",
+      "checkouttime": "10:00",
+      "date": "2022-03-03",
+      "dept": "QA"
+    },
+    {
+      "employeName": "Test2",
+      "checkinTime": "10:00",
+      "checkouttime": "11:00",
+      "date": "2022-03-03",
+      "dept": "Dev"
+    },
+    {
+      "employeName": "Test3",
+      "checkinTime": "11:00",
+      "checkouttime": "12:00",
+      "date": "2022-03-03",
+      "dept": "Finance"
+    },
+    {
+      "employeName": "Test4",
+      "checkinTime": "12:00",
+      "checkouttime": "13:00",
+      "date": "2022-03-03",
+      "dept": "HR"
+    },
+    {
+      "employeName": "Test5",
+      "checkinTime": "13:00",
+      "checkouttime": "14:00",
+      "date": "2022-03-03",
+      "dept": "BA"
+    },
+    {
+      "employeName": "Test6",
+      "checkinTime": "14:00",
+      "checkouttime": "15:00",
+      "date": "2022-03-03",
+      "dept": "Admin"
+    },
+    {
+      "employeName": "Test1",
+      "checkinTime": "9:00",
+      "checkouttime": "10:00",
+      "date": "2022-03-04",
+      "dept": "QA"
+    },
+    {
+      "employeName": "Test2",
+      "checkinTime": "10:00",
+      "checkouttime": "11:00",
+      "date": "2022-03-04",
+      "dept": "Dev"
+    },
+    {
+      "employeName": "Test3",
+      "checkinTime": "11:00",
+      "checkouttime": "12:00",
+      "date": "2022-03-04",
+      "dept": "Finance"
+    },
+    {
+      "employeName": "Test4",
+      "checkinTime": "12:00",
+      "checkouttime": "13:00",
+      "date": "2022-03-04",
+      "dept": "HR"
+    },
+    {
+      "employeName": "Test5",
+      "checkinTime": "13:00",
+      "checkouttime": "14:00",
+      "date": "2022-03-04",
+      "dept": "BA"
+    },
+    {
+      "employeName": "Test6",
+      "checkinTime": "14:00",
+      "checkouttime": "15:00",
+      "date": "2022-03-04",
+      "dept": "Admin"
+    },
+    {
+      "employeName": "Test1",
+      "checkinTime": "9:00",
+      "checkouttime": "10:00",
+      "date": "2022-03-05",
+      "dept": "QA"
+    },
+    {
+      "employeName": "Test2",
+      "checkinTime": "10:00",
+      "checkouttime": "11:00",
+      "date": "2022-03-05",
+      "dept": "Dev"
+    },
+    {
+      "employeName": "Test3",
+      "checkinTime": "11:00",
+      "checkouttime": "12:00",
+      "date": "2022-03-05",
+      "dept": "Finance"
+    },
+    {
+      "employeName": "Test4",
+      "checkinTime": "12:00",
+      "checkouttime": "13:00",
+      "date": "2022-03-05",
+      "dept": "HR"
+    },
+    {
+      "employeName": "Test5",
+      "checkinTime": "13:00",
+      "checkouttime": "14:00",
+      "date": "2022-03-05",
+      "dept": "BA"
+    },
+    {
+      "employeName": "Test6",
+      "checkinTime": "14:00",
+      "checkouttime": "15:00",
+      "date": "2022-03-05",
+      "dept": "Admin"
+    }
+  ];
+  
+function removeColon(s){
+    if(s.length==4)
+    s=s.replace(":","");
+    if(s.length ==5)
+    s=s.replace(":","");
+    return parseInt(s);
+}
+function diff(temp1,temp2){
+    time1=removeColon(temp1);
+    time2=removeColon(temp2);
+    hourDiff=parseInt(time2/100-time1/100-1);
+    minDiff=time2%100+(60-time1%100);
+    if(minDiff>=60){
+        hourDiff++;
+        minDiff=minDiff-60;
+    }
+    res=(hourDiff).toString() + ':' +(minDiff).toString();
+    return res;
+}
+  for(var i=0;i<list.length;i++){
+   
+      var temp1=list[i].checkouttime;
+      var temp2=list[i].checkinTime;
+    temp=diff(temp2,temp1);
+    list.map(i=>i.TotalTime=temp);
+    
+
+  }
+  
+
+    function searchEmployee(){
+    var ans=[];
+    var x;
+    var searchVal=document.querySelector('input').value;
+    for(var i=0;i<list.length;i++){
+         if(list[i].employeName==searchVal){
+            ans.push(list[i]); 
+        }
+    }
+    console.log(ans);
+    /*let txt="";
+    for(let it in ans){
+        txt+=ans[it]+ " ";
+    };
+    document.getElementById("demo").innerHTML=txt;*/
+}
+   
+
+
+</script>
+
+</body>
+</html>
